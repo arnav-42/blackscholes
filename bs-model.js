@@ -1,3 +1,19 @@
+function normalCDF(x) {
+    var p = 0.2316419;
+    var b1 = 0.319381530;
+    var b2 = -0.356563782;
+    var b3 = 1.781477937;
+    var b4 = -1.821255978;
+    var b5 = 1.330274429;
+
+    var t = 1 / (1 + p * Math.abs(x));
+    var z = Math.exp(-0.5 * x * x) / Math.sqrt(2 * Math.PI);
+    var y = 1 - z * (b1 * t + b2 * Math.pow(t, 2) + b3 * Math.pow(t, 3) + b4 * Math.pow(t, 4) + b5 * Math.pow(t, 5));
+
+    return (x > 0) ? y : 1 - y;
+}
+
+
 function blackScholes(S, K, T, r, sigma) {
     r /= 100;  // Convert to decimal
     sigma /= 100;  // Convert to decimal
