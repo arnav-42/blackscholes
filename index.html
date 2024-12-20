@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black-Scholes Model Visualization</title>
+</head>
+<body>
+    <h1>Black-Scholes Model Calculator</h1>
+    <label>Underlying Price (S): <input type="range" id="underlyingPrice" value="100" min="1" max="200" step="1" oninput="updateBSM()"></label><span id="underlyingPriceOutput">100</span><br>
+    <label>Strike Price (K): <input type="range" id="strikePrice" value="100" min="1" max="200" step="1" oninput="updateBSM()"></label><span id="strikePriceOutput">100</span><br>
+    <label>Time to Expiry (T in years): <input type="range" id="timeToExpiry" value="1" min="0.01" max="5" step="0.01" oninput="updateBSM()"></label><span id="timeToExpiryOutput">1</span><br>
+    <label>Risk-Free Rate (%): <input type="range" id="riskFreeRate" value="5" min="0" max="10" step="0.1" oninput="updateBSM()"></label><span id="riskFreeRateOutput">5</span><br>
+    <label>Volatility (%): <input type="range" id="volatility" value="20" min="1" max="100" step="1" oninput="updateBSM()"></label><span id="volatilityOutput">20</span><br>
+    <p>Call Option Price: <span id="callPrice">10.45</span></p>
+
+    <script src="bs-model.js"></script>
+</body>
+</html>
