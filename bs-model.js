@@ -42,12 +42,20 @@ function updateBSM() {
     const T = parseFloat(document.getElementById('timeToExpiry').value);
     const r = parseFloat(document.getElementById('riskFreeRate').value);
     const sigma = parseFloat(document.getElementById('volatility').value);
-    
+
+    // Update display values
+    document.getElementById('underlyingPriceOutput').textContent = S.toFixed(0);
+    document.getElementById('strikePriceOutput').textContent = K.toFixed(0);
+    document.getElementById('timeToExpiryOutput').textContent = T.toFixed(2);
+    document.getElementById('riskFreeRateOutput').textContent = r.toFixed(1);
+    document.getElementById('volatilityOutput').textContent = sigma.toFixed(0);
+
     const callPrice = blackScholes(S, K, T, r, sigma);
     document.getElementById('callPrice').textContent = callPrice.toFixed(2);
     
     generateSurface();  // Update the 3D graph
 }
+
 
 window.onload = function() {
     updateBSM();  // Calculate initial values and display 3D graph on page load
